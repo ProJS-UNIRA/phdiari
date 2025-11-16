@@ -1,6 +1,6 @@
 ---
 title: "Postingan Pertama di PhDairi!"
-date: "2025-11-17"
+date: "2025-11-16"
 category: "Pengumuman"
 description: "Pengantar singkat tentang mengapa blog ini ada dan apa yang diharapkan."
 published: true

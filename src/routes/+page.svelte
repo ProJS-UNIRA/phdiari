@@ -1,9 +1,7 @@
 <script lang="ts">
-	const posts = [
-		{ title: 'Membangun Kebiasaan Menulis Akademis', date: '2025-09-10', slug: 'kebiasaan-menulis', excerpt: 'Tips dan rutinitas harian untuk menyelesaikan disertasi dan menjaga produktivitas riset.' },
-		{ title: 'Eksperimen Reproducible dengan SvelteKit', date: '2025-08-02', slug: 'reproducible-sveltekit', excerpt: 'Panduan singkat untuk membuat eksperimen yang dapat diulang menggunakan SvelteKit dan tool sederhana.' },
-		{ title: 'Catatan Teknikal: Optimasi Query Database', date: '2025-07-15', slug: 'optimasi-query', excerpt: 'Beberapa trik untuk mempercepat query pada dataset besar, dengan contoh kode dan pengukuran.' }
-	];
+	import type { PageData } from './$types';
+
+	let { data }: { data: PageData } = $props();
 
 	function formatDate(dateStr: string) {
 		return new Date(dateStr).toLocaleDateString('id-ID', {
@@ -47,16 +45,16 @@
 <section class="pb-10 md:pb-12">
 	<h2 class="text-xl md:text-3xl mb-6 coffee-signature">Catatan Terbaru</h2>
 	<div class="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-7">
-		{#each posts as post}
+		{#each data.posts as post}
 			<a
 				href={`/posts/${post.slug}`}
 				class="card card-hover block p-6 no-underline focus-visible:outline focus-visible:outline-[#294644]"
 			>
-				<h3 class="text-[1.05rem] font-semibold leading-snug text-[#008C86]">{post.title}</h3>
+				<h3 class="text-[1.05rem] font-semibold leading-snug text-[#008C86]">{post.metadata.title}</h3>
 				<div class="mt-2 text-xs font-semibold text-gray-500 uppercase tracking-[0.12em]">
-					{formatDate(post.date)}
+					{formatDate(post.metadata.date)}
 				</div>
-				<p class="mt-4 text-sm leading-relaxed text-gray-700">{post.excerpt}</p>
+				<p class="mt-4 text-sm leading-relaxed text-gray-700">{post.metadata.description}</p>
 			</a>
 		{/each}
 	</div>

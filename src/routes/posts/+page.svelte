@@ -3,6 +3,7 @@
 
   let { data }: { data: PageData } = $props();
   let query = $state('');
+  let visibleCount = $state(10);
 
 	function formatDate(dateStr: string) {
 		return new Date(dateStr).toLocaleDateString('id-ID', {
@@ -11,6 +12,22 @@
 			year: 'numeric'
 		});
 	}
+
+  const matchesQuery = (value: string) => value.toLocaleLowerCase().includes(query.trim().toLocaleLowerCase());
+
+  let filteredPosts = $derived(
+    !query.trim()
+      ? data.posts
+      : data.posts.filter(post => {
+        return matchesQuery(post.metadata.title) || matchesQuery(post.metadata.category) || matchesQuery(post.metadata.description);
+      })
+  );
+
+  $effect(() => {
+    // reset pagination whenever query changes
+    void query; // depend on query
+    visibleCount = 10;
+  });
 </script>
 
 <section class="space-y-8">
@@ -38,14 +55,14 @@
 		</label>
 	</div>
 
-	<!-- <section class="space-y-4">
+	<section class="space-y-4">
 		<div class="flex items-center justify-between gap-2">
 			<h2 class="text-base font-semibold tracking-[0.14em] uppercase text-gray-500">
 				Daftar Catatan
 			</h2>
 			{#if query.trim()}
 				<p class="text-xs text-gray-500">
-					Menampilkan {filteredPosts.length} dari {allPosts.length} catatan untuk kata kunci
+					Menampilkan {filteredPosts.length} dari {data.posts.length} catatan untuk kata kunci
 					<strong>"{query.trim()}"</strong>
 				</p>
 			{/if}
@@ -57,27 +74,39 @@
 			</p>
 		{:else}
 			<div class="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-7">
-				{#each filteredPosts as post}
+				{#each filteredPosts.slice(0, visibleCount) as post}
 					<a
 						href={`/posts/${post.slug}`}
 						class="card card-hover block p-6 no-underline focus-visible:outline focus-visible:outline-[#294644]"
 					>
 						<div class="text-xs font-semibold text-gray-500 uppercase tracking-[0.16em] mb-2">
-							{formatDate(post.date)} · {post.category}
+							{formatDate(post.metadata.date)} · {post.metadata.category}
 						</div>
 						<h3 class="text-[1.05rem] font-semibold leading-snug text-[#008C86] mb-2">
-							{post.title}
+							{post.metadata.title}
 						</h3>
 						<p class="text-sm leading-relaxed text-gray-700">
-							{post.excerpt}
+							{post.metadata.description}
 						</p>
 					</a>
 				{/each}
 			</div>
-		{/if}
-	</section> -->
 
-	<section class="pt-4 border-t border-orange-100/70">
+			{#if filteredPosts.length > visibleCount}
+				<div class="mt-4 flex justify-center">
+					<button
+						type="button"
+						class="px-4 py-2 text-sm font-semibold text-[#008C86] hover:text-[#006b66]"
+						onclick={() => (visibleCount += 10)}
+					>
+						Muat lebih banyak
+					</button>
+				</div>
+			{/if}
+		{/if}
+	</section>
+
+	<!-- <section class="pt-4 border-t border-orange-100/70">
 		<h2 class="text-xl md:text-3xl mb-3 coffee-signature">
 			Catatan Terbaru
 		</h2>
@@ -94,6 +123,6 @@
 				</a>
 			{/each}
 		</div>
-	</section>
+	</section> -->
 </section>
 

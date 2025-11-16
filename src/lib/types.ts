@@ -10,4 +10,3 @@ export type PostMetadata = {
 export type PostModule = {
   metadata: PostMetadata;
 };
-
