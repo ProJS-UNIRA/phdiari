@@ -1,20 +1,18 @@
 
 <section class="space-y-10">
-	<header class="max-w-3xl">
+	<header class="flex flex-col gap-2 justify-center items-center">
 		<p class="eyebrow mb-3">Tentang Saya</p>
+		
 		<h1 class="text-3xl md:text-4xl font-bold leading-snug mb-4">Mohammad Nazir Arifin</h1>
-		<p class="text-sm md:text-base text-gray-700 mb-3">
+		<p class="text-sm md:text-base text-gray-700 mb-3 text-center">
 			Dosen Informatika yang juga sedang menempuh studi doktoral. Saya menulis di PhDiari untuk
-			mendokumentasikan proses berpikir, eksperimen teknis, dan suka-duka perjalanan riset.
-		</p>
-		<p class="text-sm md:text-base text-gray-700">
-			Ketertarikan saya meliputi reproducible research, pengembangan tool sederhana untuk peneliti,
+			mendokumentasikan proses berpikir, eksperimen teknis, dan suka-duka perjalanan riset. Ketertarikan saya meliputi reproducible research, pengembangan tool sederhana untuk peneliti,
 			dan cara-cara praktis menjembatani dunia akademik dengan kebutuhan industri maupun masyarakat.
 		</p>
 	</header>
 
 	<section class="grid grid-cols-1 md:grid-cols-3 gap-8 items-start">
-		<div class="md:col-span-2 space-y-4 text-sm md:text-base text-gray-800 leading-relaxed">
+		<div class="md:col-span-2 space-y-4 text-sm text-gray-600 leading-relaxed">
 			<p>
 				Di luar aktivitas mengajar dan menulis, saya sering membantu mahasiswa dan rekan peneliti
 				merancang eksperimen, mengorganisir data, dan menerjemahkan ide abstrak menjadi prototipe yang
@@ -32,15 +30,15 @@
 				Kontak Singkat
 			</h2>
 			<ul class="space-y-1 text-sm text-gray-700">
-				<li><strong>Institusi:</strong> &nbsp; Program Studi Informatika</li>
+				<li><strong>Institusi:</strong> &nbsp; Program Studi Informatika Universitas Madura</li>
 				<li><strong>Fokus:</strong> &nbsp; Riset S3, reproducible experiments, tooling</li>
-				<li><strong>Email:</strong> &nbsp; (isi dengan alamat email profesional Anda)</li>
+				<li><strong>Email:</strong> &nbsp; nazir@unira.ac.id</li>
 			</ul>
 		</div>
 	</section>
 
 	<section class="space-y-6">
-		<h2 class="text-sm font-semibold tracking-[0.16em] uppercase text-gray-500">
+		<h2 class="text-xl md:text-3xl mb-3 coffee-signature">
 			Publikasi Terpilih
 		</h2>
 		<ul class="space-y-4 text-sm md:text-base text-gray-800">
@@ -60,7 +58,7 @@
 	</section>
 
 	<section class="space-y-6">
-		<h2 class="text-sm font-semibold tracking-[0.16em] uppercase text-gray-500">
+		<h2 class="text-xl md:text-3xl mb-3 coffee-signature">
 			Project & Kolaborasi
 		</h2>
 		<div class="grid grid-cols-1 md:grid-cols-2 gap-6">
