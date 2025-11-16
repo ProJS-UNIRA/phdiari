@@ -2,36 +2,60 @@
   import { page } from '$app/stores';
   // For demo we show static content; in real app you'd load the post by slug.
   const post = {
-    title: 'Contoh Artikel: Membangun Kebiasaan Menulis Akademis',
-    date: '2025-09-10',
-    category: 'Refleksi Riset'
+    title: 'Tolbamian Saremamimpdil',
+    date: '18 Januari 2024',
+    category: 'Informatika, Riset S3'
   };
 </script>
 
-<section class="max-w-5xl mx-auto px-6 py-12">
-  <article class="card p-8 max-w-3xl mx-auto" style="font-family: 'Merriweather', Cambria, Georgia, 'Times New Roman', serif;">
-    <header class="mb-6">
-      <h1 class="text-3xl font-bold mb-2">{post.title}</h1>
-      <div class="text-sm text-[#757575]">{post.date} · {post.category}</div>
+<section class="container mx-auto px-6 py-12">
+  <article class="card mx-auto p-8 md:p-9 shadow-md bg-white rounded">
+    <header class="mb-5">
+      <h1 class="text-3xl font-bold leading-snug text-[#008C86] mb-3">
+        {post.title}
+      </h1>
+      <div class="space-y-1 text-sm text-gray-500">
+        <p>
+          <strong class="font-semibold text-gray-600">Tanggal:</strong>
+          <span class="ml-1">{post.date}</span>
+        </p>
+        <p>
+          <strong class="font-semibold text-gray-600">Kategori:</strong>
+          <span class="ml-1">{post.category}</span>
+        </p>
+      </div>
     </header>
 
-    <div class="prose prose-lg text-base leading-relaxed">
-      <p>Ini adalah contoh paragraf pembuka. Fokus utama pada tampilan ini adalah keterbacaan: lebar konten dibatasi, font serif dipilih untuk kenyamanan membaca, dan jarak baris dibuat lega.</p>
-
-      <h2>Praktik Menulis</h2>
-      <p>Menulis secara teratur membantu menyelesaikan tugas akademis besar. Bagi banyak peneliti, menulis 300-500 kata sehari sudah cukup untuk membuat kemajuan signifikan pada disertasi atau laporan penelitian.</p>
-
-      <p>Contoh kode atau blok kutipan dapat ditampilkan dengan jelas menggunakan gaya <code>prose</code> dari Tailwind Typography.</p>
+    <div class="text-[0.95rem] leading-relaxed text-gray-800 space-y-3">
+      <p>
+        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nisi illum doloremque quaerat
+        beatae impedit omnis exercitationem, dignissimos maiores at, minus dicta aut dolore quos
+        perferendis aspernatur cupiditate amet. Rem, iusto.
+      </p>
+      <p>
+        Integer facilisis sapien non nisl gravida, quis vehicula neque feugiat. Aliquam erat volutpat.
+        Aliquid assumenda iure exercitationem laborum, repellat, porro veniam ut possimus sint eligendi
+        corrupti perspiciatis vero.
+      </p>
+      <p>
+        Dalam praktik penulisan riset, paragraf-paragraf seperti ini biasanya berisi konteks masalah,
+        latar belakang singkat, dan gambaran umum pendekatan yang digunakan peneliti. Tujuannya agar
+        pembaca bisa menangkap inti cerita tanpa harus langsung masuk ke detail teknis.
+      </p>
     </div>
 
-    <div class="mt-8 p-4 border-l-4 border-[#E47A53] bg-[#FFF8F5] rounded">
-      <div class="flex flex-col md:flex-row md:items-center md:justify-between gap-4">
-        <div>
-          <strong>Merasa terbantu dengan artikel ini?</strong>
-          <div class="text-sm text-gray-600">Saya membuka 3 slot mentoring privat bulan ini.</div>
-        </div>
-        <a href="/services" class="inline-block bg-[#E47A53] text-white px-4 py-2 rounded-md font-medium">Diskusi Kebutuhan Riset Anda</a>
-      </div>
+    <div class="mt-6 rounded-md bg-[#111827] text-gray-100 text-xs font-mono p-4 leading-relaxed overflow-x-auto">
+      <span class="block opacity-80 mb-1">// Contoh snippet output eksperimen</span>
+      <span>Loren 130x35681 (len=512)</span><br />
+      <span>Context: 4.3523s · acc: 0.9486</span><br />
+      <span>device: nvidia-a100 · lr: 6e-5 · steps: 4201</span><br />
+      <span>checkpoint: 3b1c10ed (epoch=4, iter=12810)</span>
+    </div>
+
+    <div class="mt-7">
+      <a href="/services" class="inline-block bg-[#E47A53] text-white px-4 py-2 rounded-md font-medium">
+        Diskusi Kebutuhan Riset Anda
+      </a>
     </div>
   </article>
 </section>

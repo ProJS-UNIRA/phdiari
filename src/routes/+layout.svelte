@@ -1,7 +1,12 @@
 <script lang="ts">
 	import '../app.css';
-	
+	import { page } from '$app/state';
+
 	let { children } = $props();
+
+	const isRoot = () => page.url.pathname === '/';
+	const isPosts = () => page.url.pathname.startsWith('/posts');
+	const isAbout = () => page.url.pathname.startsWith('/about');
 </script>
 
 
@@ -13,9 +18,24 @@
 				<img src="/img/logo-text.png" alt="PhDiari" class="h-8">
 			</a>
 			<nav class="flex items-center gap-8 font-serif text-3xl">
-				<a href="/" class="nav-link nav-link--active">Beranda</a>
-				<a href="/posts" class="nav-link text-[#5f5a54]">Catatan</a>
-				<a href="/about" class="nav-link text-[#5f5a54]">Tentang Saya</a>
+				<a
+					href="/"
+					class={`nav-link ${isRoot() ? 'nav-link--active' : 'text-[#5f5a54]'}`}
+				>
+					Beranda
+				</a>
+				<a
+					href="/posts"
+					class={`nav-link ${isPosts() ? 'nav-link--active' : 'text-[#5f5a54]'}`}
+				>
+					Catatan
+				</a>
+				<a
+					href="/about"
+					class={`nav-link ${isAbout() ? 'nav-link--active' : 'text-[#5f5a54]'}`}
+				>
+					Tentang Saya
+				</a>
 			</nav>
 		</div>
 	</header>
