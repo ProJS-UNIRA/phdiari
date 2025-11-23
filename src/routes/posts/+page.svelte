@@ -57,7 +57,7 @@
 
 	<section class="space-y-4">
 		<div class="flex items-center justify-between gap-2">
-			<h2 class="text-base font-semibold tracking-[0.14em] uppercase text-gray-500">
+			<h2 class="text-xl md:text-3xl mb-2 coffee-signature">
 				Daftar Catatan
 			</h2>
 			{#if query.trim()}

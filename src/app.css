@@ -1,5 +1,9 @@
 @import "tailwindcss";
 @plugin "@tailwindcss/typography";
+@import "prismjs/themes/prism-tomorrow.css";
+
+/* KaTeX */
+@import 'katex/dist/katex.min.css';
 
 @layer base {
 	body {
